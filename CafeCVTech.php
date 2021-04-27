@@ -5,15 +5,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cafe CVTech</title>
+
         <!-- BOOTSTRAP -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <!-- BOOTSTRAP -->
+
         <!-- CSS -->
         <link rel="stylesheet" href="./styles/style.css">
-        <!-- CSS -->
+
+        <!-- JAVASCRIPT -->
+        <script src="./scripts/buttonToReceipt.js" defer></script>
     </head>
     <body>
         <div class="header">
@@ -22,34 +25,50 @@
             </div>
         </div>
         <div class="secondHeader"></div>
-        <div class="container">
-            <div class="selectArea">
+            <div class="container selectArea">
                 <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
+                    <div class="col-md-4 main"><div class="wrapper">Cheeseburger</div></div>
+                    <div class="col-md-4 sides"><div class="wrapper">French Fries</div></div>
+                    <div class="col-md-4 drinks"><div class="wrapper">Coke</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
+                    <div class="col-md-4 main"><div class="wrapper">Hamburger</div></div>
+                    <div class="col-md-4 sides"><div class="wrapper">Tater Tots</div></div>
+                    <div class="col-md-4 drinks"><div class="wrapper">Dr. Pepper</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
+                    <div class="col-md-4 main"><div class="wrapper">Chicken Tenders</div></div>
+                    <div class="col-md-4 sides"><div class="wrapper">Chips</div></div>
+                    <div class="col-md-4 drinks"><div class="wrapper">Sprite</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
+                    <div class="col-md-4 main"><div class="wrapper">Hotdog</div></div>
+                    <div class="col-md-4 sides"><div class="wrapper">Candy</div></div>
+                    <div class="col-md-4 drinks"><div class="wrapper">Coffee</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4"></div>
+                    <div class="col-md-4 main"><div class="wrapper">Special</div></div>
+                    <div class="col-md-4 sides"><div class="wrapper">Sample</div></div>
+                    <div class="col-md-4 drinks"><div class="wrapper">Sample</div></div>
                 </div>
             </div>
-        </div>
+            <div class="receiptSection">
+                <div class="row">
+                    <div class="col-md-12"><h3>Current Order</h3></div>
+                </div>
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row"></div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <button>Finalize Order</button>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
     </body>
 </html>

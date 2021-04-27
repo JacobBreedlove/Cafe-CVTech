@@ -5,9 +5,17 @@
     padding: 0;
 }
 
+body {
+    overflow: hidden;
+}
+
 :root {
     --mainColor: #002f87;
     --accentColor: #ab0033;
+}
+
+.main, .sides, .drinks {
+    cursor: pointer;
 }
 
 /* Header Section */
@@ -51,12 +59,43 @@
 
 
 /* Select Section */
+.selectArea {
+    width: 70%;
+    margin: 10px 0 0 0;
+    display: block;
+    float: left;
+}
+
+.wrapper {
+    height: 100px;
+    margin: 5px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    border-radius: 20px;
+    color: var(--mainColor);
+    border: 3px solid var(--accentColor);
+    background: rgb(241, 241, 241);
+}
 
 /* Select Section */
 
 
 
 /* Receipt Section */
+.receiptSection {
+    width: 30%;
+    display: block;
+    float: left;
+    background: rgb(214, 214, 214);
+    border-left: 2px solid grey;
+}
+
+.receiptSection h3 {
+    text-align: center;
+    padding: 15px 0 0 0;
+}
 
 /* Receipt Section */
 
