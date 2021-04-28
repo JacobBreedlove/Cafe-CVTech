@@ -27,29 +27,29 @@
         <div class="secondHeader"></div>
             <div class="container selectArea">
                 <div class="row">
-                    <div class="col-md-4 main"><div class="wrapper" onclick="addToReceipt()">Cheeseburger</div></div>
-                    <div class="col-md-4 sides"><div class="wrapper" onclick="addToReceipt()">French Fries</div></div>
-                    <div class="col-md-4 drinks"><div class="wrapper" onclick="addToReceipt()">Coke</div></div>
+                    <div class="col-md-4 main"><div class="wrapper" onclick="addToReceipt(this)">Cheeseburger</div></div>
+                    <div class="col-md-4 sides"><div class="wrapper" onclick="addToReceipt(this)">French Fries</div></div>
+                    <div class="col-md-4 drinks"><div class="wrapper" onclick="addToReceipt(this)">Coke</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 main"><div class="wrapper" onclick="addToReceipt()">Hamburger</div></div>
-                    <div class="col-md-4 sides"><div class="wrapper" onclick="addToReceipt()">Tater Tots</div></div>
-                    <div class="col-md-4 drinks"><div class="wrapper" onclick="addToReceipt()">Dr. Pepper</div></div>
+                    <div class="col-md-4 main"><div class="wrapper" onclick="addToReceipt(this)">Hamburger</div></div>
+                    <div class="col-md-4 sides"><div class="wrapper" onclick="addToReceipt(this)">Tater Tots</div></div>
+                    <div class="col-md-4 drinks"><div class="wrapper" onclick="addToReceipt(this)">Dr. Pepper</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 main"><div class="wrapper" onclick="addToReceipt()">Chicken Tenders</div></div>
-                    <div class="col-md-4 sides"><div class="wrapper" onclick="addToReceipt()">Chips</div></div>
-                    <div class="col-md-4 drinks"><div class="wrapper" onclick="addToReceipt()">Sprite</div></div>
+                    <div class="col-md-4 main"><div class="wrapper" onclick="addToReceipt(this)">Chicken Tenders</div></div>
+                    <div class="col-md-4 sides"><div class="wrapper" onclick="addToReceipt(this)">Chips</div></div>
+                    <div class="col-md-4 drinks"><div class="wrapper" onclick="addToReceipt(this)">Sprite</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 main"><div class="wrapper" onclick="addToReceipt()">Hotdog</div></div>
-                    <div class="col-md-4 sides"><div class="wrapper" onclick="addToReceipt()">Candy</div></div>
-                    <div class="col-md-4 drinks"><div class="wrapper" onclick="addToReceipt()">Coffee</div></div>
+                    <div class="col-md-4 main"><div class="wrapper" onclick="addToReceipt(this)">Hotdog</div></div>
+                    <div class="col-md-4 sides"><div class="wrapper" onclick="addToReceipt(this)">Candy</div></div>
+                    <div class="col-md-4 drinks"><div class="wrapper" onclick="addToReceipt(this)">Coffee</div></div>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 main"><div class="wrapper" onclick="addToReceipt()">Special</div></div>
-                    <div class="col-md-4 sides"><div class="wrapper" onclick="addToReceipt()">Sample</div></div>
-                    <div class="col-md-4 drinks"><div class="wrapper" onclick="addToReceipt()">Sample</div></div>
+                    <div class="col-md-4 main"><div class="wrapper" onclick="addToReceipt(this)">Special</div></div>
+                    <div class="col-md-4 sides"><div class="wrapper" onclick="addToReceipt(this)">Sample</div></div>
+                    <div class="col-md-4 drinks"><div class="wrapper" onclick="addToReceipt(this)">Sample</div></div>
                 </div>
             </div>
             <div class="receiptSection">
@@ -57,8 +57,11 @@
                     <div class="col-md-12"><h2>Current Order</h2></div>
                 </div>
                 <hr>
-                <form action="total.php" method="POST">
-
+                <form action="total.php" method="POST" id="receipt">
+                    <div class="row">
+                        <div class="col-md-6">TEXT</div>
+                        <div class="col-md-6">TEXT</div>
+                    </div>
                 </form>
 
                 </form>

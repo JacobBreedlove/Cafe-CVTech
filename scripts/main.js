@@ -3,12 +3,34 @@ var receipt = [];
 
 
 
-function addToReceipt() {
-    console.log("Test");
+function addToReceipt(e) {
+    let item = e.innerHTML;
+    receipt += item;
+    var wrapper1 = document.createElement("div");
+    var inner1 = document.createElement("div");
+    var inner2 = document.createElement("div");
+
+    wrapper1.setAttribute("class", "row");
+    inner1.setAttribute("class", "col-md-6");
+    inner2.setAttribute("class", "col-md-6");    
+    inner2.id = "itemPrice";
+
+    let result = getPrices(item);
+    console.log(result);
+
+
+    var text = document.createTextNode(item);
+    inner1.appendChild(text);
+    wrapper1.appendChild(inner1);
+    wrapper1.appendChild(inner2);
+    
+
+    document.querySelector("#receipt").appendChild(wrapper1);
+    
 }
 
 function submitReceipt() {
-    receipt.forEach(getPrices);
+    
 }
 
 function getPrices(item) {
@@ -21,7 +43,7 @@ function getPrices(item) {
             for (x in items_price) {
                 txt += items_price[x].name + "<br>";
             }
-            receiptDisplay.innerHTML = txt;
+            document.getElementById('itemPrice').innerHTML = txt;
         }
     };
 xmlhttp.open("GET", "menu_items.php?x=" + dbParam, true);
