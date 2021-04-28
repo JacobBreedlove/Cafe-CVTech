@@ -20,9 +20,9 @@ body {
 
 /* Header Section */
 .logo {
-    padding-top: 15px;
+    padding-top: 25px;
     width: 200px;
-    height: 60px;
+    height: 80px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -50,7 +50,7 @@ body {
     margin: 2px 0 0 0;
     padding: 0;
     width: 100%;
-    height: 40px;
+    height: 50px;
     background: var(--accentColor);
 }
 
@@ -61,18 +61,17 @@ body {
 /* Select Section */
 .selectArea {
     width: 70%;
-    margin: 10px 0 0 0;
+    margin: 25px 0 0 100px;
     display: block;
     float: left;
 }
 
 .wrapper {
-    height: 100px;
+    height: 125px;
     margin: 15px;
-    padding: 30px;
-    display: flex;
-    justify-content: center;
-    font-size: 24px;
+    padding: 40px;
+    text-align: center;
+    font-size: 30px;
     border-radius: 20px;
     color: var(--mainColor);
     border: 3px solid var(--accentColor);
@@ -97,6 +96,7 @@ body {
 .receiptSection h2 {
     text-align: center;
     padding: 25px 0 0 0;
+    color: var(--mainColor);
 }
 
 .receiptSection button {
@@ -108,7 +108,7 @@ body {
     color: #002f87;
     margin: 20px 0 ;
     position: absolute;
-    top: 700px;
+    top: 625px;
 }
 
 /* Receipt Section */
