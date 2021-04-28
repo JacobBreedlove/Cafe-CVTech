@@ -4,11 +4,12 @@ var receipt = [];
 
 
 function addToReceipt() {
-
+    receipt.forEach(getPrices);
+    
 }
 
 function submitReceipt() {
-    receipt.forEach(getPrices);
+    
 }
 
 function getPrices(item) {
