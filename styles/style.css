@@ -68,7 +68,7 @@ body {
 
 .wrapper {
     height: 100px;
-    margin: 5px;
+    margin: 15px;
     padding: 30px;
     display: flex;
     justify-content: center;
@@ -86,15 +86,29 @@ body {
 /* Receipt Section */
 .receiptSection {
     width: 30%;
+    height: 1000px;
     display: block;
-    float: left;
+    float: right;
     background: rgb(214, 214, 214);
     border-left: 2px solid grey;
+    position: relative;
 }
 
-.receiptSection h3 {
+.receiptSection h2 {
     text-align: center;
-    padding: 15px 0 0 0;
+    padding: 25px 0 0 0;
+}
+
+.receiptSection button {
+    width: 100%;
+    height: 60px;
+    font-size: 26px;
+    border: 2px solid var(--accentColor);
+    border-radius: 8px;
+    color: #002f87;
+    margin: 20px 0 ;
+    position: absolute;
+    top: 700px;
 }
 
 /* Receipt Section */
