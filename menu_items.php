@@ -20,7 +20,7 @@ if ($conn->query($sql) === TRUE) {
 
 
 $sql = "CREATE TABLE Sides (
-    sName varchar(200),
+    fName varchar(200),
     Price INT)";
 if ($conn->query($sql) === TRUE) {
     echo "table created successfully. ";
@@ -30,7 +30,7 @@ if ($conn->query($sql) === TRUE) {
 
 
 $sql = "CREATE TABLE Drinks (
-    dName varchar(200),
+    fName varchar(200),
     Price INT)";
 if ($conn->query($sql) === TRUE) {
     echo "table created successfully. ";
