@@ -2,6 +2,17 @@ var receipt = [];
 
 
 
+function enterFullscreen() {
+    let element = document.querySelector("body");
+
+    element.requestFullscreen()
+    .then(function(){
+
+    })
+    .catch(function(error) {
+        console.log(error.message);
+    })
+}
 
 function addToReceipt(e) {
     let item = e.innerHTML;
@@ -24,7 +35,6 @@ function addToReceipt(e) {
     wrapper1.appendChild(inner1);
     wrapper1.appendChild(inner2);
     
-
     document.querySelector("#receipt").appendChild(wrapper1);
     
 }
