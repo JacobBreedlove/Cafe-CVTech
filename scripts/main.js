@@ -34,7 +34,7 @@ function submitReceipt() {
 }
 
 function getPrices(item) {
-    fName = { "fName":item};
+    fName = {"fName":item};
     dbParam = JSON.stringify(fName);
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
@@ -46,6 +46,6 @@ function getPrices(item) {
             document.getElementById('itemPrice').innerHTML = txt;
         }
     };
-xmlhttp.open("GET", "menu_items.php?x=" + dbParam, true);
+xmlhttp.open("GET", "menu-items.php?x=" + dbParam, true);
 xmlhttp.send();
 }
