@@ -16,7 +16,7 @@ var receipt = [];
 
 function addToReceipt(e) {
     let item = e.innerHTML;
-    receipt += item;
+    receipt.push(item);
     var wrapper1 = document.createElement("div");
     var inner1 = document.createElement("div");
     var inner2 = document.createElement("div");
