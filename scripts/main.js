@@ -46,6 +46,6 @@ function getPrices(item) {
             document.getElementById('itemPrice').innerHTML = txt;
         }
     };
-xmlhttp.open("GET", "menu-items.php?x=" + dbParam, true);
+// xmlhttp.open("GET", "menu-items.php?x=" + dbParam, true);
 xmlhttp.send();
 }
