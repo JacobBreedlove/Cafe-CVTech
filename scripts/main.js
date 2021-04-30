@@ -1,4 +1,5 @@
 var receipt = [];
+var txt;
 
 
 
@@ -27,6 +28,7 @@ function addToReceipt(e) {
     inner2.id = "itemPrice";
 
     getPrices(item);
+    console.log(item);
 
 
     var text = document.createTextNode(item);
@@ -35,7 +37,6 @@ function addToReceipt(e) {
     wrapper1.appendChild(inner2);
     
     document.querySelector("#receipt").appendChild(wrapper1);
-    
 }
 
 // function submitReceipt() {
@@ -53,19 +54,20 @@ function addToReceipt(e) {
 // xmlhttp.send();
 
 
+
 function getPrices(item) {
     fName = {"fName":item};
     dbParam = JSON.stringify(fName);
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            items_price = JSON.parse(this.responseText);
+            items_price = this.responseText;
             for (x in items_price) {
                 txt += items_price[x].name + "<br>";
             }
             document.getElementById('itemPrice').innerHTML = txt;
         }
     };
-// xmlhttp.open("GET", "menu-items.php?x=" + dbParam, true);
+xmlhttp.open("GET", "./php/menu-items.php?x=" + dbParam, true);
 xmlhttp.send();
 }
