@@ -1,0 +1,17 @@
+{
+    "cheeseburger": 4.99,
+    "hamburger": 3.99,
+    "chicken tenders": 3.99,
+    "hotdog": 3,
+    "mainSpecial": 5.50,
+    "french fries": 2.99,
+    "tater tots": 2.99,
+    "chips": 1.5,
+    "candy": 1.5,
+    "sideSpecial": 3.5,
+    "Coke": 1.99,
+    "Dr. Pepper": 1.99,
+    "Sprite": 1.99, 
+    "Fanta": 1.99,
+    "Coffee": 3    
+}

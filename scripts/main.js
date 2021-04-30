@@ -2,6 +2,17 @@ var receipt = [];
 
 
 
+// function enterFullscreen() {
+//     let element = document.querySelector("body");
+
+//     element.requestFullscreen()
+//     .then(function(){
+
+//     })
+//     .catch(function(error) {
+//         console.log(error.message);
+//     })
+// }
 
 function addToReceipt(e) {
     let item = e.innerHTML;
@@ -15,8 +26,7 @@ function addToReceipt(e) {
     inner2.setAttribute("class", "col-md-6");    
     inner2.id = "itemPrice";
 
-    let result = getPrices(item);
-    console.log(result);
+    getPrices(item);
 
 
     var text = document.createTextNode(item);
@@ -24,14 +34,24 @@ function addToReceipt(e) {
     wrapper1.appendChild(inner1);
     wrapper1.appendChild(inner2);
     
-
     document.querySelector("#receipt").appendChild(wrapper1);
     
 }
 
-function submitReceipt() {
+// function submitReceipt() {
     
-}
+// }
+
+// var xmlhttp = new XMLHttpRequest();
+// xmlhttp.onreadystatechange = function() {
+//   if (this.readyState == 4 && this.status == 200) {
+//     var myObj = JSON.parse(this.responseText);
+//     console.log(myObj.main["mainSpecial"]);
+//   }
+// };
+// xmlhttp.open("GET", "./scripts/menu2.json", true);
+// xmlhttp.send();
+
 
 function getPrices(item) {
     fName = {"fName":item};

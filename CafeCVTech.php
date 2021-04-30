@@ -54,16 +54,14 @@
             </div>
             <div class="receiptSection">
                 <div class="row">
-                    <div class="col-md-12"><h2>Current Order</h2></div>
+                    <div class="col-md-12"><h1>Current Order</h1></div>
                 </div>
                 <hr>
                 <form action="total.php" method="POST" id="receipt">
                     <div class="row">
-                        <div class="col-md-6">TEXT</div>
-                        <div class="col-md-6">TEXT</div>
+                        <div class="col-md-6 receiptHead">Item</div>
+                        <div class="col-md-6 receiptHead">Price</div>
                     </div>
-                </form>
-
                 </form>
                 <div class="row">
                     <div class="col-md-3"></div>
