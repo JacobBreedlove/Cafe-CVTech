@@ -2,17 +2,17 @@ var receipt = [];
 
 
 
-function enterFullscreen() {
-    let element = document.querySelector("body");
+// function enterFullscreen() {
+//     let element = document.querySelector("body");
 
-    element.requestFullscreen()
-    .then(function(){
+//     element.requestFullscreen()
+//     .then(function(){
 
-    })
-    .catch(function(error) {
-        console.log(error.message);
-    })
-}
+//     })
+//     .catch(function(error) {
+//         console.log(error.message);
+//     })
+// }
 
 function addToReceipt(e) {
     let item = e.innerHTML;
@@ -26,8 +26,7 @@ function addToReceipt(e) {
     inner2.setAttribute("class", "col-md-6");    
     inner2.id = "itemPrice";
 
-    let result = getPrices(item);
-    console.log(result);
+    getPrices(item);
 
 
     var text = document.createTextNode(item);
@@ -39,9 +38,20 @@ function addToReceipt(e) {
     
 }
 
-function submitReceipt() {
+// function submitReceipt() {
     
-}
+// }
+
+// var xmlhttp = new XMLHttpRequest();
+// xmlhttp.onreadystatechange = function() {
+//   if (this.readyState == 4 && this.status == 200) {
+//     var myObj = JSON.parse(this.responseText);
+//     console.log(myObj.main["mainSpecial"]);
+//   }
+// };
+// xmlhttp.open("GET", "./scripts/menu2.json", true);
+// xmlhttp.send();
+
 
 function getPrices(item) {
     fName = {"fName":item};
@@ -56,6 +66,6 @@ function getPrices(item) {
             document.getElementById('itemPrice').innerHTML = txt;
         }
     };
-xmlhttp.open("GET", "menu-items.php?x=" + dbParam, true);
+xmlhttp.open("GET", "./php/menu-items.php?x=" + dbParam, true);
 xmlhttp.send();
 }
