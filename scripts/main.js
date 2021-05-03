@@ -54,18 +54,16 @@ function addToReceipt(e) {
 
 
 function getPrices(item) {
+    var txt;
     fName = {"fName":item};
     dbParam = JSON.stringify(fName);
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            items_price = JSON.parse(this.responseText);
-            for (x in items_price) {
-                txt += items_price[x].name + "<br>";
-            }
-            document.getElementById('itemPrice').innerHTML = txt;
+            items_price = this.responseText;
+            document.getElementById('itemPrice').innerHTML = items_price;
         }
     };
-xmlhttp.open("GET", "./php/menu-items.php?x=" + dbParam, true);
+xmlhttp.open("GET", "./php/getPrices.php?x=" + dbParam, true);
 xmlhttp.send();
 }
