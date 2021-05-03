@@ -1,4 +1,5 @@
 var receipt = [];
+var txt;
 
 
 
@@ -16,7 +17,7 @@ var receipt = [];
 
 function addToReceipt(e) {
     let item = e.innerHTML;
-    receipt += item;
+    receipt.push(item);
     var wrapper1 = document.createElement("div");
     var inner1 = document.createElement("div");
     var inner2 = document.createElement("div");
@@ -27,6 +28,7 @@ function addToReceipt(e) {
     inner2.id = "itemPrice";
 
     getPrices(item);
+    console.log(item);
 
 
     var text = document.createTextNode(item);
@@ -35,7 +37,6 @@ function addToReceipt(e) {
     wrapper1.appendChild(inner2);
     
     document.querySelector("#receipt").appendChild(wrapper1);
-    
 }
 
 // function submitReceipt() {
@@ -51,6 +52,7 @@ function addToReceipt(e) {
 // };
 // xmlhttp.open("GET", "./scripts/menu2.json", true);
 // xmlhttp.send();
+
 
 
 function getPrices(item) {
