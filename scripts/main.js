@@ -14,8 +14,11 @@ var txt;
 //         console.log(error.message);
 //     })
 // }
+ let num= 0; 
 
 function addToReceipt(e) {
+    num = num + 1;
+    console.log(num);
     let item = e.innerHTML;
     receipt.push(item);
     var wrapper1 = document.createElement("div");
@@ -25,11 +28,11 @@ function addToReceipt(e) {
     wrapper1.setAttribute("class", "row");
     inner1.setAttribute("class", "col-md-6");
     inner2.setAttribute("class", "col-md-6");    
-    inner2.id = "itemPrice";
+    inner2.id = "itemPrice" + num;
 
-    getPrices(item);
-    console.log(item);
+    console.log(inner2.id);
 
+    getPrices(item, num);
 
     var text = document.createTextNode(item);
     inner1.appendChild(text);
@@ -55,7 +58,7 @@ function addToReceipt(e) {
 
 
 
-function getPrices(item) {
+function getPrices(item, num) {
     var txt;
     fName = {"fName":item};
     dbParam = JSON.stringify(fName);
@@ -63,9 +66,19 @@ function getPrices(item) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             items_price = this.responseText;
-            document.getElementById('itemPrice').innerHTML = items_price;
+            let id = "itemPrice" + num;
+            let result = items_price[11];
+            console.log(result);
+            result2 = formatFunction(result);
+            document.getElementById(id).innerHTML = result2;
         }
     };
-xmlhttp.open("GET", "./php/getPrices.php?x=" + dbParam, true);
+xmlhttp.open("GET", "./php/menu-items.php?x=" + dbParam, true);
 xmlhttp.send();
+}
+
+
+function formatFunction(result){
+    let formatted = "$" + result + ".00";
+    return formatted;
 }
