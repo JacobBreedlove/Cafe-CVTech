@@ -62,10 +62,7 @@ function getPrices(item) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             items_price = this.responseText;
-            for (x in items_price) {
-                txt += items_price[x].name + "<br>";
-            }
-            document.getElementById('itemPrice').innerHTML = txt;
+            document.getElementById('itemPrice').innerHTML = items_price;
         }
     };
 xmlhttp.open("GET", "./php/menu-items.php?x=" + dbParam, true);
