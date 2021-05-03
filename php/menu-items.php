@@ -38,30 +38,3 @@ if ($conn->query($sql) === TRUE) {
     echo "Drinks table creation error: " . $conn->error . " ";
 }
 
-
-
-
-header("Content-Type: application/json; charset=UTF-8");
-$fName = json_decode($_GET["x"], false);
-
-$food = $conn->prepare("SELECT Price FROM Food WHERE fName = ?");
-$food->bind_param("s", $fName->fName);
-$food->execute();
-$result = $food->get_result();
-$output = $result->fetch_all(MYSQLI_ASSOC);
-echo json_encode($output);
-
-$sides = $conn->prepare("SELECT Price FROM Sides WHERE fName = ?");
-$sides->bind_param("s", $fName->fName);
-$sides->execute();
-$result = $sides->get_result();
-$output = $result->fetch_all(MYSQLI_ASSOC);
-echo json_encode($output);
-
-$drinks = $conn->prepare("SELECT Price FROM Drinks WHERE fName = ?");
-$drinks->bind_param("s", $fName->fName);
-$drinks->execute();
-$result = $drinks->get_result();
-$output = $result->fetch_all(MYSQLI_ASSOC);
-echo json_encode($output);
-?>
