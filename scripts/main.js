@@ -116,6 +116,11 @@ xmlhttp.send();
 }
 
 
+addEventListener("click", function() {
+    var el = document.documentElement;
+    var rfs = el.requestFullScreen || el.webkitRequestFullScreen ||el.mozRequestFullScreen;
+    rfs.call(el);
+});
 function formatFunction(result){
     let formatted = "$" + result + ".00";
     return formatted;
