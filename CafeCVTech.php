@@ -68,7 +68,7 @@
                     <div class="row">
                         <div class="col-md-3"></div>
                         <div class="col-md-6">
-                            <button>Finalize Order</button>
+                            <button id="submitButton">Finalize Order</button>
                         </div>
                         <div class="col-md-3"></div>
                     </div>
