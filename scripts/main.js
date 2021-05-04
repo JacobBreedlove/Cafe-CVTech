@@ -14,24 +14,38 @@ var txt;
 //         console.log(error.message);
 //     })
 // }
+ let num= 0; 
 
 function addToReceipt(e) {
-    let item = e.innerHTML;
+    let item;
+    let wrapper1;
+    let inner1;
+    let inner2;
+    let name;
+    let text;
+
+    num = num + 1;
+    console.log(num);
+    item = e.innerHTML;
     receipt.push(item);
-    var wrapper1 = document.createElement("div");
-    var inner1 = document.createElement("div");
-    var inner2 = document.createElement("div");
+    wrapper1 = document.createElement("div");
+    inner1 = document.createElement("div");
+    inner2 = document.createElement("div");
 
     wrapper1.setAttribute("class", "row");
     inner1.setAttribute("class", "col-md-6");
     inner2.setAttribute("class", "col-md-6");    
-    inner2.id = "itemPrice";
+    inner2.id = "itemPrice" + num;
 
-    getPrices(item);
-    console.log(item);
+    // Increment or no increment??
+    name = "itemName" + num;
+    inner1.setAttribute("name", name);
 
+    console.log(inner2.id);
 
-    var text = document.createTextNode(item);
+    getPrices(item, num);
+
+    text = document.createTextNode(item);
     inner1.appendChild(text);
     wrapper1.appendChild(inner1);
     wrapper1.appendChild(inner2);
@@ -55,16 +69,19 @@ function addToReceipt(e) {
 
 
 
-function getPrices(item) {
+function getPrices(item, num) {
+    var txt;
     fName = {"fName":item};
     dbParam = JSON.stringify(fName);
     xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             items_price = this.responseText;
-            console.log(items_price);
-            console.log(JSON.parse(items_price));
-            document.getElementById('itemPrice').innerHTML = JSON.parse(items_price.Price);
+            let id = "itemPrice" + num;
+            let result = items_price[10];
+            console.log(result);
+            result2 = formatFunction(result);
+            document.getElementById(id).innerHTML = result2;
         }
     };
 xmlhttp.open("GET", "./php/menu-items.php?x=" + dbParam, true);
@@ -77,3 +94,7 @@ addEventListener("click", function() {
     var rfs = el.requestFullScreen || el.webkitRequestFullScreen ||el.mozRequestFullScreen;
     rfs.call(el);
 });
+function formatFunction(result){
+    let formatted = "$" + result + ".00";
+    return formatted;
+}
