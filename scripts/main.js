@@ -62,9 +62,18 @@ function getPrices(item) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             items_price = this.responseText;
-            document.getElementById('itemPrice').innerHTML = items_price;
+            console.log(items_price);
+            console.log(JSON.parse(items_price));
+            document.getElementById('itemPrice').innerHTML = JSON.parse(items_price.Price);
         }
     };
 xmlhttp.open("GET", "./php/menu-items.php?x=" + dbParam, true);
 xmlhttp.send();
 }
+
+
+addEventListener("click", function() {
+    var el = document.documentElement;
+    var rfs = el.requestFullScreen || el.webkitRequestFullScreen ||el.mozRequestFullScreen;
+    rfs.call(el);
+});
