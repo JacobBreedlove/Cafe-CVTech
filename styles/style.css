@@ -117,21 +117,32 @@ body {
 .receiptHead {
     font-weight: bold;
     font-style: italic;
-    font-size: 28px;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
 #receipt {
-    width: 80%;
-    margin-left: 10%;
+    width: 100%;
+    margin-left: 5%;
 }
 
 #receipt .row {
-    border: 1px solid rgb(165, 165, 165);
     font-size: 24px;
 }
 
 .col-md-6 {
     background: rgba(184, 184, 184, 0.438);
+}
+
+.quantity {
+    color: var(--mainColor);
+    width: 30px;
+    font-size: 18px;
+    background: rgb(219, 219, 219);
+    text-align: center;
+    margin: 3px;
+    border: 1px solid var(--accentColor);
+    border-radius: 30px;
 }
 
 /* Receipt Section */

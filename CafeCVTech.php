@@ -52,24 +52,27 @@
                     <div class="col-md-4 drinks"><div class="wrapper" onclick="addToReceipt(this)">Sample</div></div>
                 </div>
             </div>
-            <div class="receiptSection">
+            <div class="container receiptSection">
                 <div class="row">
                     <div class="col-md-12"><h1>Current Order</h1></div>
                 </div>
                 <hr>
+                
                 <form action="total.php" method="POST" id="receipt">
+                    <div class="row receiptHeader">
+                        <div class="col-md-2 receiptHead">Qty</div>
+                        <div class="col-md-4 receiptHead">Item</div>
+                        <div class="col-md-4 receiptHead">Price</div>
+                        <div class="col-md-2"></div>
+                    </div>
                     <div class="row">
-                        <div class="col-md-6 receiptHead">Item</div>
-                        <div class="col-md-6 receiptHead">Price</div>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-6">
+                            <button>Finalize Order</button>
+                        </div>
+                        <div class="col-md-3"></div>
                     </div>
-                </form>
-                <div class="row">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6">
-                        <button>Finalize Order</button>
-                    </div>
-                    <div class="col-md-3"></div>
-                </div>
+                </form>    
             </div>
     </body>
 </html>
