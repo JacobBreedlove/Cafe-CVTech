@@ -68,6 +68,8 @@ function addToReceipt(e) {
         button = document.createElement("button");
         let insertIntoButton = document.createTextNode("X");
         button.appendChild(insertIntoButton);
+        let deleteID = "deleteButton" + num;
+        button.id = deleteID;
         button.setAttribute("class", "deleteButton");
 
 
@@ -76,7 +78,7 @@ function addToReceipt(e) {
         inner3.appendChild(inner4);
         inner1.appendChild(text);
         
-        wrapper1.appendChild(inner5);
+        
         wrapper1.appendChild(inner3);
         wrapper1.appendChild(inner1);
         wrapper1.appendChild(inner2);
