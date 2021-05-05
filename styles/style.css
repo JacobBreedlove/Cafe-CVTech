@@ -123,11 +123,12 @@ body {
 
 #receipt {
     width: 100%;
-    margin-left: 5%;
+    margin-left: 10%;
 }
 
 #receipt .row {
     font-size: 24px;
+    margin-bottom: 5px;
 }
 
 .col-md-6 {
@@ -149,6 +150,13 @@ body {
     font-size: 18px;
     width: 30px;
     margin: 3px;
+    font-weight: bold;
+    border: 1px solid var(--accentColor);
+    color: var(--mainColor);
+    margin: 3px;
+    position: relative;
+    left: -75px;
+    border-radius: 20px;
 }
 
 /* Receipt Section */
