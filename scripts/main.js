@@ -1,4 +1,5 @@
 var receipt = [""];
+var order = [];
 var txt;
 
  let num= 0; 
@@ -92,7 +93,15 @@ function deleteItem() {
 
 
 function submitReceipt() {
-    
+    let i = 1
+    receipt.forEach(findQuantity);
+    function findQuantity(value, index, array) {
+        number = document.getElementById("quantity" + i).innerHTML;
+        txt = receipt[i] + number;
+        ++i;
+        order.push(txt);
+        console.log(order);
+    }
 }
 
 
