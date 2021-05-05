@@ -157,6 +157,7 @@ body {
     position: relative;
     left: -75px;
     border-radius: 20px;
+    text-align: center;
 }
 
 /* Receipt Section */

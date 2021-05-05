@@ -58,7 +58,7 @@
                 </div>
                 <hr>
                 
-                <form action="total.php" method="POST" id="receipt">
+                <form action="" method="POST" id="receipt">
                     <div class="row receiptHeader">
                         <div class="col-md-2 receiptHead">Qty</div>
                         <div class="col-md-4 receiptHead">Item</div>
