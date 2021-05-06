@@ -188,3 +188,26 @@ function formatFunction(result){
     let formatted = "$" + result + ".00";
     return formatted;
 }
+
+
+function signIn() {
+    var cashier = document.getElementsByName("Id")
+    cashierId = {"id":cashier};
+    console.log(cashierId);
+    dbParam = JSON.stringify(cashierId);
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            cashierId = JSON.parse(this.responseText);
+            console.log(cashierId);
+        }
+    };
+xmlhttp.open("GET", "./php/cashiers.php?x=" + dbParam, true);
+id = xmlhttp.send();
+console.log(id);
+    if (cashier == null || cashier == "") {
+        signIn();
+    } else {
+        location.href = "CafeCVTech.php"
+    }
+}
