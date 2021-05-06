@@ -136,3 +136,25 @@ function formatFunction(result){
     let formatted = "$" + result + ".00";
     return formatted;
 }
+
+
+function signIn() {
+    var cashier = prompt("Please Sign-in.")
+    cashierId = {"id":cashier};
+    console.log(cashierId);
+    dbParam = JSON.stringify(cashierId);
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            cashierId = this.responseText;
+            console.log(cashierId);
+            id = cashierId;
+        }
+    };
+xmlhttp.open("GET", "./php/cashiers.php?x=" + dbParam, true);
+id = xmlhttp.send();
+console.log(id);
+    if (cashier == null || cashier == "") {
+        signIn();
+    }
+}
