@@ -102,9 +102,9 @@ function deleteItem(e) {
         document.getElementById(elementQtyId).innerHTML = deletedQty;
     } else {
         let formElementCount = document.getElementById(element).parentElement.childElementCount;
-        formElementCount = formElementCount - 2;
         document.getElementById(element).remove();
-        reformatIDs(formElementCount, element);
+        console.log(formElementCount);
+        reformatIDs(formElementCount, e);
         
         for(i = 0; i < receipt.length; i++){
             if (receipt[i] == element) {
@@ -118,8 +118,27 @@ function deleteItem(e) {
     
 }
 
-function reformatIDs(formElementCount) {
+function reformatIDs(formElementCount, e) {
+    // GOES TO THE FORM INSTEAD OF ROW OR COL-MD-?? 
+    let element2 = e.parentNode.parentNode;
+    let numChildren = element2.childNodes;
+    if (formElementCount - 3 == 0){
+        num = 0;
+    } else {
 
+
+
+        for (i = 0; i < formElementCount - 3; i++) {
+            let parentElement = numChildren[i+2];
+            for (y = 0; i < numChildren[i+2].childElementCount; i++){
+
+            }
+        } 
+
+
+        
+    }
+    
 }
 
 function submitReceipt() {
@@ -153,12 +172,12 @@ xmlhttp.open("GET", "./php/menu-items.php?x=" + dbParam, true);
 xmlhttp.send();
 }
 
-
 addEventListener("click", function() {
     var el = document.documentElement;
     var rfs = el.requestFullScreen || el.webkitRequestFullScreen ||el.mozRequestFullScreen;
     rfs.call(el);
 });
+
 function formatFunction(result){
     let formatted = "$" + result + ".00";
     return formatted;
