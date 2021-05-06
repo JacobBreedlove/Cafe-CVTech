@@ -20,7 +20,7 @@ function addToReceipt(e) {
     let qtyID;
     let button;
 
-    for (let i = 0; i < receipt.length; i++) {
+    for (i = 0; i < receipt.length; i++) {
         if(receipt[i] == item){
             matchedItem = true;
             matchedItemNum = i;
@@ -91,6 +91,7 @@ function addToReceipt(e) {
 
 function deleteItem(e) {
     let element = e.parentNode;
+    let parentElement = element.parentNode;
     element = element.id;
     let elementQty = document.getElementById(element).firstChild;
     let elementQtyId = elementQty.firstChild.id;
@@ -103,8 +104,7 @@ function deleteItem(e) {
     } else {
         let formElementCount = document.getElementById(element).parentElement.childElementCount;
         document.getElementById(element).remove();
-        console.log(formElementCount);
-        reformatIDs(formElementCount, e);
+        reformatIDs(formElementCount, parentElement);
         
         for(i = 0; i < receipt.length; i++){
             if (receipt[i] == element) {
@@ -120,23 +120,28 @@ function deleteItem(e) {
 
 function reformatIDs(formElementCount, e) {
     // GOES TO THE FORM INSTEAD OF ROW OR COL-MD-?? 
-    let element2 = e.parentNode.parentNode;
-    let numChildren = element2.childNodes;
-    if (formElementCount - 3 == 0){
+    let divChildElements = e.childNodes;
+    let totalElements = divChildElements.length - 5;
+    if (totalElements == 0){
         num = 0;
     } else {
-
-
-
-        for (i = 0; i < formElementCount - 3; i++) {
-            let parentElement = numChildren[i+2];
-            for (y = 0; i < numChildren[i+2].childElementCount; i++){
-
-            }
+        for (i = 0; i < totalElements; i++) {
+            let childElement = divChildElements[i+5];
+            childElement = childElement.childNodes;
+            childElement = childElement[0].childNodes;
+            let quantityElement = childElement[0];
+            quantityElement.id = "quantity" + (i+1);
         } 
-
-
-        
+        for (i = 0; i < totalElements; i++) {
+            let childElement = divChildElements[i+5];
+            childElement = childElement.childNodes;
+            let childElementID1 = childElement[2];
+            childElementID1.id = "itemPrice" + (i+1);
+            let childElementID2 = childElement[1];
+            let childName = "itemName" + (i+1);
+            childElementID2.setAttribute("name", childName);
+        }
+        num = num -1;
     }
     
 }
@@ -162,6 +167,7 @@ function getPrices(item, num) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             items_price = this.responseText;
+            console.log(num);
             let id = "itemPrice" + num;
             let result = items_price[11];
             result2 = formatFunction(result);
