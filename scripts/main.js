@@ -202,9 +202,9 @@ function signIn() {
             console.log(cashierId);
         }
     };
-xmlhttp.open("GET", "./php/cashiers.php?x=" + dbParam, true);
-id = xmlhttp.send();
-console.log(id);
+    xmlhttp.open("GET", "./php/cashiers.php?x=" + dbParam, true);
+    id = xmlhttp.send();
+    console.log(id);
     if (cashier == null || cashier == "") {
         signIn();
     } else {

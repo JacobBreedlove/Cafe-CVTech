@@ -105,9 +105,9 @@ body {
     border: 2px solid var(--accentColor);
     border-radius: 8px;
     color: #002f87;
-    margin: 20px 0 ;
+    margin: -150px 0 0 75px;
     position: absolute;
-    top: 675px;
+    top: 685px;
 }
 
 .item {
@@ -160,6 +160,17 @@ body {
     text-align: center;
 }
 
+.totalDiv {
+    border: 1px solid var(--accentColor);
+    color: var(--mainColor);
+    background: rgb(211, 211, 211);
+    border-radius: 20px;
+    padding: 25px 10px 15px 30px;
+    margin: 0;
+    position: relative;
+    top: 510px;
+    left: -55px;
+}
 /* Receipt Section */
 
 
