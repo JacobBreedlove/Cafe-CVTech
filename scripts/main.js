@@ -20,7 +20,7 @@ function addToReceipt(e) {
     let qtyID;
     let button;
 
-    for (i = 0; i < receipt.length; i++) {
+    for (let i = 0; i < receipt.length; i++) {
         if(receipt[i] == item){
             matchedItem = true;
             matchedItemNum = i;
@@ -35,11 +35,11 @@ function addToReceipt(e) {
         before = parseInt(before);
         let after = before + 1;
         document.getElementById(matchedItemID).innerHTML = after;
-        // receipt.push(item);
     } else {
         num = num + 1;
         receipt.push(item);
         wrapper1 = document.createElement("div");
+        wrapper1.id = item;
         inner1 = document.createElement("div");            
         inner2 = document.createElement("div");
         inner3 = document.createElement("div");
@@ -58,22 +58,22 @@ function addToReceipt(e) {
         inner2.id = "itemPrice" + num;
 
         // Increment or no increment??
-         name = "itemName" + num;
+        name = "itemName" + num;
         inner1.setAttribute("name", name);
 
         getPrices(item, num);
 
         text = document.createTextNode(item);
         text2 = document.createTextNode("1");
-        button = document.createElement("button");
+        button1 = document.createElement("DIV");
         let insertIntoButton = document.createTextNode("X");
-        button.appendChild(insertIntoButton);
+        button1.appendChild(insertIntoButton);
         let deleteID = "deleteButton" + num;
-        button.id = deleteID;
-        button.setAttribute("class", "deleteButton");
+        button1.id = deleteID;
+        button1.setAttribute("class", "deleteButton");
+        button1.onclick = function(){deleteItem(this.parentNode);};
 
-
-        inner5.appendChild(button);
+        inner5.appendChild(button1);
         inner4.appendChild(text2);
         inner3.appendChild(inner4);
         inner1.appendChild(text);
@@ -89,10 +89,57 @@ function addToReceipt(e) {
 }
 
 
-function deleteItem() {
+function deleteItem(e) {
+    let element = e.parentNode;
+    element = element.id;
+    let elementQty = document.getElementById(element).firstChild;
+    let elementQtyId = elementQty.firstChild.id;
+    elementQty = elementQty.firstChild.innerHTML;
 
+    if(elementQty > 1) {
+        let beforeQty = document.getElementById(elementQtyId).innerHTML;
+        let deletedQty = parseInt(beforeQty) - 1;
+        document.getElementById(elementQtyId).innerHTML = deletedQty;
+    } else {
+        let formElementCount = document.getElementById(element).parentElement.childElementCount;
+        document.getElementById(element).remove();
+        console.log(formElementCount);
+        reformatIDs(formElementCount, e);
+        
+        for(i = 0; i < receipt.length; i++){
+            if (receipt[i] == element) {
+                receipt.splice(i, 1)
+                break;
+            }
+        
+    }
+    }
+
+    
 }
 
+function reformatIDs(formElementCount, e) {
+    // GOES TO THE FORM INSTEAD OF ROW OR COL-MD-?? 
+    let element2 = e.parentNode.parentNode;
+    let numChildren = element2.childNodes;
+    if (formElementCount - 3 == 0){
+        num = 0;
+    } else {
+
+
+
+        for (i = 0; i < formElementCount - 3; i++) {
+            let parentElement = numChildren[i+2];
+            for (y = 0; i < numChildren[i+2].childElementCount; i++){
+
+            }
+        } 
+
+
+        
+    }
+    
+}
 
 function submitReceipt() {
     let i = 1
@@ -117,7 +164,6 @@ function getPrices(item, num) {
             items_price = this.responseText;
             let id = "itemPrice" + num;
             let result = items_price[11];
-            console.log(result);
             result2 = formatFunction(result);
             document.getElementById(id).innerHTML = result2;
         }
@@ -126,12 +172,12 @@ xmlhttp.open("GET", "./php/menu-items.php?x=" + dbParam, true);
 xmlhttp.send();
 }
 
-
 addEventListener("click", function() {
     var el = document.documentElement;
     var rfs = el.requestFullScreen || el.webkitRequestFullScreen ||el.mozRequestFullScreen;
     rfs.call(el);
 });
+
 function formatFunction(result){
     let formatted = "$" + result + ".00";
     return formatted;
