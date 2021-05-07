@@ -71,13 +71,13 @@
                     <div class="totalDiv">
                         <div class="row">
                             <div class="col-md-7">
-                                <h4>Tax: </h4>
-                                <h4>Subtotal: </h4>
+                                <h5>Tax: </h5>
+                                <h5>Subtotal: </h5>
                                 <h2><strong>Total: </strong></h2>
                             </div>
                             <div class="col-md-5">
-                                <h4>$3.54</h4>
-                                <h4>$43.53</h4>
+                                <h5>$3.54</h5>
+                                <h5>$43.53</h5>
                                 <h2>$46.64</h2>
                             </div>
                         </div>
