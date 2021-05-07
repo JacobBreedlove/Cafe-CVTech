@@ -9,6 +9,8 @@ body {
     overflow: hidden;
 }
 
+
+
 :root {
     --mainColor: #002f87;
     --accentColor: #ab0033;
@@ -105,9 +107,9 @@ body {
     border: 2px solid var(--accentColor);
     border-radius: 8px;
     color: #002f87;
-    margin: 20px 0 ;
+    margin: -150px 0 0 75px;
     position: absolute;
-    top: 675px;
+    top: 685px;
 }
 
 .item {
@@ -129,10 +131,6 @@ body {
 #receipt .row {
     font-size: 24px;
     margin-bottom: 5px;
-}
-
-.col-md-6 {
-    background: rgba(184, 184, 184, 0.438);
 }
 
 .quantity {
@@ -160,6 +158,16 @@ body {
     text-align: center;
 }
 
+.totalDiv {
+    border: 1px solid var(--accentColor);
+    color: var(--mainColor);
+    border-radius: 20px;
+    padding: 25px 10px 15px 30px;
+    margin: 0;
+    position: relative;
+    top: 510px;
+    left: -55px;
+}
 /* Receipt Section */
 
 
