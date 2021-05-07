@@ -20,7 +20,7 @@ function addToReceipt(e) {
     let matchedItemID;
     let qtyID;
     let button;
-    let i = 1;
+    let x = 1;
 
     for (i = 0; i < receipt.length; i++) {
         if(receipt[i] == item){
@@ -88,11 +88,10 @@ function addToReceipt(e) {
             
         document.querySelector("#items").appendChild(wrapper1);
     }
-    number = document.getElementById("quantity" + i).innerHTML;
-    txt = receipt[i] + number;
-    ++i;
+    number = document.getElementById("quantity" + x).innerHTML;
+    txt = receipt[x];
+    ++x;
     order.push(txt);
-    console.log(order);
 }
 
 
