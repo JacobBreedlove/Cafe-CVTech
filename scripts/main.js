@@ -84,7 +84,7 @@ function addToReceipt(e) {
         wrapper1.appendChild(inner2);
         wrapper1.appendChild(inner5);
             
-        document.querySelector("#receipt").appendChild(wrapper1);
+        document.querySelector("#items").appendChild(wrapper1);
     }
 }
 
@@ -104,7 +104,7 @@ function deleteItem(e) {
     } else {
         let formElementCount = document.getElementById(element).parentElement.childElementCount;
         document.getElementById(element).remove();
-        reformatIDs(formElementCount, parentElement);
+        reformatIDs(formElementCount - 1, parentElement);
         
         for(i = 0; i < receipt.length; i++){
             if (receipt[i] == element) {
@@ -121,19 +121,20 @@ function deleteItem(e) {
 function reformatIDs(formElementCount, e) {
     // GOES TO THE FORM INSTEAD OF ROW OR COL-MD-?? 
     let divChildElements = e.childNodes;
-    let totalElements = divChildElements.length - 5;
+    console.log(divChildElements);
+    let totalElements = divChildElements.length - 1;
     if (totalElements == 0){
         num = 0;
     } else {
         for (i = 0; i < totalElements; i++) {
-            let childElement = divChildElements[i+5];
+            let childElement = divChildElements[i+1];
             childElement = childElement.childNodes;
             childElement = childElement[0].childNodes;
             let quantityElement = childElement[0];
             quantityElement.id = "quantity" + (i+1);
         } 
         for (i = 0; i < totalElements; i++) {
-            let childElement = divChildElements[i+5];
+            let childElement = divChildElements[i+1];
             childElement = childElement.childNodes;
             let childElementID1 = childElement[2];
             childElementID1.id = "itemPrice" + (i+1);
