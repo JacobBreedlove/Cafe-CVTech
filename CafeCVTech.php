@@ -44,7 +44,7 @@
                 <div class="row">
                     <div class="col-md-4 main"><div class="wrapper" onclick="addToReceipt(this)">Salad</div></div>
                     <div class="col-md-4 sides"><div class="wrapper" onclick="addToReceipt(this)">Candy</div></div>
-                    <div class="col-md-4 drinks"><div class="wrapper" onclick="addToReceipt(this)">Coffee</div></div>
+                    <div class="col-md-4 drinks"><div class="wrapper" onclick="addToReceipt(this), submitReceipt()">Coffee</div></div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 main"><div class="wrapper" onclick="addToReceipt(this)">Special</div></div>

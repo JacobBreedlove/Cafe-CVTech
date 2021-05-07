@@ -1,6 +1,7 @@
 var receipt = [""];
 var order = [];
 var txt;
+let subtotal;
 
  let num= 0; 
 
@@ -19,6 +20,7 @@ function addToReceipt(e) {
     let matchedItemID;
     let qtyID;
     let button;
+    let i = 1;
 
     for (i = 0; i < receipt.length; i++) {
         if(receipt[i] == item){
@@ -86,6 +88,11 @@ function addToReceipt(e) {
             
         document.querySelector("#receipt").appendChild(wrapper1);
     }
+    number = document.getElementById("quantity" + i).innerHTML;
+    txt = receipt[i] + number;
+    ++i;
+    order.push(txt);
+    console.log(order);
 }
 
 
@@ -148,14 +155,25 @@ function reformatIDs(formElementCount, e) {
 
 function submitReceipt() {
     let i = 1
-    receipt.forEach(findQuantity);
-    function findQuantity(value, index, array) {
-        number = document.getElementById("quantity" + i).innerHTML;
-        txt = receipt[i] + number;
-        ++i;
-        order.push(txt);
-        console.log(order);
-    }
+    order.forEach(calculateSubtotal);
+    // calculateSubtotal();
+}
+
+
+function calculateSubtotal(result) {
+    let i = 1;
+    price = parseInt(result);
+    console.log(price);
+    quantity = parseInt(document.getElementById("quantity" + i).innerHTML);
+    console.log(quantity);
+    subtotal = price * quantity;
+    console.log(subtotal);
+    ++i;
+}
+
+function calculateTotal() {
+    total = (subtotal * 0.045) + subtotal;
+    console.log(total);
 }
 
 
@@ -169,7 +187,8 @@ function getPrices(item, num) {
             items_price = this.responseText;
             console.log(num);
             let id = "itemPrice" + num;
-            let result = items_price[11];
+            let result = items_price[10];
+            subtotal = calculateSubtotal(result);
             result2 = formatFunction(result);
             document.getElementById(id).innerHTML = result2;
         }
