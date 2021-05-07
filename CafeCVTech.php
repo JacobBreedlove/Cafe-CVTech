@@ -65,12 +65,22 @@
                         <div class="col-md-4 receiptHead">Price</div>
                         <div class="col-md-2"></div>
                     </div>
-        
+                    <div id="items">
+                    </div>
                     
                     <div class="totalDiv">
-                        <h4>Tax: </h4>
-                        <h4>Subtotal: </h4>
-                        <h2>Total: </h2>
+                        <div class="row">
+                            <div class="col-md-7">
+                                <h4>Tax: </h4>
+                                <h4>Subtotal: </h4>
+                                <h2><strong>Total: </strong></h2>
+                            </div>
+                            <div class="col-md-5">
+                                <h4>$3.54</h4>
+                                <h4>$43.53</h4>
+                                <h2>$46.64</h2>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <button id="submitButton">Finalize Order</button>

@@ -9,6 +9,8 @@ body {
     overflow: hidden;
 }
 
+
+
 :root {
     --mainColor: #002f87;
     --accentColor: #ab0033;
@@ -131,10 +133,6 @@ body {
     margin-bottom: 5px;
 }
 
-.col-md-6 {
-    background: rgba(184, 184, 184, 0.438);
-}
-
 .quantity {
     color: var(--mainColor);
     width: 30px;
@@ -163,7 +161,6 @@ body {
 .totalDiv {
     border: 1px solid var(--accentColor);
     color: var(--mainColor);
-    background: rgb(211, 211, 211);
     border-radius: 20px;
     padding: 25px 10px 15px 30px;
     margin: 0;
