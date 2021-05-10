@@ -99,6 +99,7 @@ function addToReceipt(e) {
 function deleteItem(e) {
     let element = e.parentNode;
     getPricesDelete(element);
+    subtotalToPage();
     let parentElement = element.parentNode;
     element = element.id;
     let elementQty = document.getElementById(element).firstChild;
@@ -167,13 +168,14 @@ function calculateSubtotal(result) {
     price = parseInt(result);
     subtotal1 = price;
     subtotal += subtotal1;
-    console.log(subtotal);
+    subtotalToPage(subtotal);
+}
+
+function subtotalToPage(){
     tax = 0.045;
     document.getElementById('subtotal').innerHTML = "$" + subtotal + ".00";
     document.getElementById('tax').innerHTML = "$" + (subtotal * tax).toFixed(2);
     document.getElementById('total').innerHTML = "$" + ((subtotal * tax) + subtotal).toFixed(2);
-
-    // Adds to total, but doesn't subtract yet, Coffee button doesn't add to subtotal
 }
 
 function calculateTotal() {
@@ -183,11 +185,9 @@ function calculateTotal() {
 
 function getPricesDelete(itemRow){
     let deleteChildren = itemRow.childNodes;
-    console.log(deleteChildren[2].innerHTML);
     let deleteItemPrice = deleteChildren[2].innerHTML;
     deleteItemPrice = deleteItemPrice.substring(1, 2);
     subtotal -= deleteItemPrice;
-    console.log(subtotal);
 }
 
 function getPrices(item, num, matchedItem) {
