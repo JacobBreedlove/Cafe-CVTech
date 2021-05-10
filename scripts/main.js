@@ -246,3 +246,7 @@ function signIn() {
         location.href = "CafeCVTech.php"
     }
 }
+
+function cashCredit(){
+    document.querySelector(".submit").style.display = "none";
+}

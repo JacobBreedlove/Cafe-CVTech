@@ -82,10 +82,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <button id="submitButton">Finalize Order</button>
+                    <div class="col-md-6 submit">
+                        <div id="submitButton" onclick="cashCredit()">Finalize Order</div>
                     </div>
                 </form>    
+                
             </div>
     </body>
 </html>

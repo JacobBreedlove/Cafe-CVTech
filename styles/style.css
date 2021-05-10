@@ -109,11 +109,11 @@ body {
     color: #002f87;
     margin: -150px 0 0 75px;
     position: absolute;
-    top: 685px;
-}
-
-.item {
-    color: rebeccapurple;
+    top: 195px;
+    text-align: center;
+    padding: 8px 0;
+    background: rgb(240, 240, 240);
+    cursor: pointer;
 }
 
 .receiptHead {
@@ -165,8 +165,15 @@ body {
     padding: 25px 10px 15px 65px;
     margin: 0;
     position: relative;
-    top: 510px;
+    top: 25px;
     left: -55px;
+    background: rgb(240, 240, 240);
+}
+
+#items {
+    height: 500px;
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 /* Receipt Section */
 
