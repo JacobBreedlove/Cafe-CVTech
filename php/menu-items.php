@@ -16,7 +16,7 @@ mysqli_query($conn, $sql);
 header("Content-Type: application/json; charset=UTF-8");
 $fName = json_decode($_GET["x"], false);
 
-$food = $conn->prepare("SELECT Price FROM food WHERE fName = ?");
+$food = $conn->prepare("SELECT Price FROM items WHERE fName = ?");
 $food->bind_param("s", $fName->fName);
 $food->execute();
 $result = $food->get_result();

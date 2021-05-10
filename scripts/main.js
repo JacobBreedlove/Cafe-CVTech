@@ -1,7 +1,7 @@
 var receipt = [""];
 var order = [];
 var txt;
-let subtotal;
+let subtotal = 0;
 
  let num= 0; 
 
@@ -37,6 +37,7 @@ function addToReceipt(e) {
         before = parseInt(before);
         let after = before + 1;
         document.getElementById(matchedItemID).innerHTML = after;
+        getPrices(item, num, matchedItem);
     } else {
         num = num + 1;
         receipt.push(item);
@@ -63,7 +64,7 @@ function addToReceipt(e) {
         name = "itemName" + num;
         inner1.setAttribute("name", name);
 
-        getPrices(item, num);
+        getPrices(item, num, matchedItem);
 
         text = document.createTextNode(item);
         text2 = document.createTextNode("1");
@@ -125,9 +126,8 @@ function deleteItem(e) {
 }
 
 function reformatIDs(formElementCount, e) {
-    // GOES TO THE FORM INSTEAD OF ROW OR COL-MD-?? 
+    // GOES TO THE FORM ELEMENT
     let divChildElements = e.childNodes;
-    console.log(divChildElements);
     let totalElements = divChildElements.length - 1;
     if (totalElements == 0){
         num = 0;
@@ -161,14 +161,15 @@ function submitReceipt() {
 
 
 function calculateSubtotal(result) {
-    let i = 1;
+    let subtotal1;
+    let x = 1;
+    console.log(result);
     price = parseInt(result);
-    console.log(price);
-    quantity = parseInt(document.getElementById("quantity" + i).innerHTML);
-    console.log(quantity);
-    subtotal = price * quantity;
-    console.log(subtotal);
-    ++i;
+    subtotal1 = price;
+    subtotal += subtotal1;
+
+
+    // Adds to total, but doesn't subtract yet, Coffee button doesn't add to subtotal
 }
 
 function calculateTotal() {
@@ -177,7 +178,7 @@ function calculateTotal() {
 }
 
 
-function getPrices(item, num) {
+function getPrices(item, num, matchedItem) {
     var txt;
     fName = {"fName":item};
     dbParam = JSON.stringify(fName);
@@ -185,12 +186,15 @@ function getPrices(item, num) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             items_price = this.responseText;
-            console.log(num);
-            let id = "itemPrice" + num;
             let result = items_price[10];
-            subtotal = calculateSubtotal(result);
+            calculateSubtotal(result);
             result2 = formatFunction(result);
-            document.getElementById(id).innerHTML = result2;
+            if(!matchedItem) {
+                let id = "itemPrice" + num;
+                document.getElementById(id).innerHTML = result2;
+            }
+            
+            
         }
     };
 xmlhttp.open("GET", "./php/menu-items.php?x=" + dbParam, true);
