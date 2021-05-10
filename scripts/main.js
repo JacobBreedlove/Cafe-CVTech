@@ -155,8 +155,16 @@ function reformatIDs(formElementCount, e) {
 
 function submitReceipt() {
     let i = 1
-    order.forEach(calculateSubtotal);
-    // calculateSubtotal();
+    //send order[] to php table
+    order = {"items":order};
+    dbParam = JSON.stringify(order);
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "./php/total.php?x=" + dbParam, true);
+
+    price = {"price":document.getElementById('total').innerHTMLr};
+    dbParam = JSON.stringify(price);
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "./php/total.php?x=" + dbParam, true);
 }
 
 
