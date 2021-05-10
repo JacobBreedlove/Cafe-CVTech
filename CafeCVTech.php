@@ -44,7 +44,7 @@
                 <div class="row">
                     <div class="col-md-4 main"><div class="wrapper" onclick="addToReceipt(this)">Salad</div></div>
                     <div class="col-md-4 sides"><div class="wrapper" onclick="addToReceipt(this)">Candy</div></div>
-                    <div class="col-md-4 drinks"><div class="wrapper" onclick="addToReceipt(this), submitReceipt()">Coffee</div></div>
+                    <div class="col-md-4 drinks"><div class="wrapper" onclick="addToReceipt(this)">Coffee</div></div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 main"><div class="wrapper" onclick="addToReceipt(this)">Special</div></div>
@@ -76,9 +76,9 @@
                                 <h2><strong>Total: </strong></h2>
                             </div>
                             <div class="col-md-5">
-                                <h5>$3.54</h5>
-                                <h5>$43.53</h5>
-                                <h2>$46.64</h2>
+                                <h5 id="tax"></h5>
+                                <h5 id="subtotal"></h5>
+                                <h2 id="total"></h2>
                             </div>
                         </div>
                     </div>
