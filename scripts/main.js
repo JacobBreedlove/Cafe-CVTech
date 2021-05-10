@@ -257,4 +257,6 @@ function signIn() {
 
 function cashCredit(){
     document.querySelector(".submit").style.display = "none";
+    document.querySelector("#cash").style.display = "inline";
+    document.querySelector("#credit").style.display = "inline";
 }

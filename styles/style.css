@@ -175,6 +175,20 @@ body {
     overflow-x: hidden;
     overflow-y: scroll;
 }
+
+.cashCreditButtons {
+    font-size: 26px;
+    margin-left: 20px;
+    padding: 5px;
+    border-radius: 8px;
+    color: var(--mainColor);
+    border: 2px solid var(--accentColor);
+    width: 90px;
+    position: relative;
+    top: 48px;
+    left: 90px;
+    display: none;
+}
 /* Receipt Section */
 
 

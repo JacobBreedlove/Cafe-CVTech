@@ -85,6 +85,10 @@
                     <div class="col-md-6 submit">
                         <div id="submitButton" onclick="cashCredit()">Finalize Order</div>
                     </div>
+                    <div class="col-md-6 cashCredit">
+                        <button class="cashCreditButtons" id="cash" type="submit" value="cash">Cash</button>
+                        <button class="cashCreditButtons" type="submit" id="credit" value="credit">Card</button>
+                    </div>
                 </form>    
                 
             </div>
