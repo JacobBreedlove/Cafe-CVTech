@@ -163,11 +163,14 @@ function submitReceipt() {
 function calculateSubtotal(result) {
     let subtotal1;
     let x = 1;
-    console.log(result);
     price = parseInt(result);
     subtotal1 = price;
     subtotal += subtotal1;
-
+    console.log(subtotal);
+    tax = 0.045;
+    document.getElementById('subtotal').innerHTML = "$" + subtotal + ".00";
+    document.getElementById('tax').innerHTML = "$" + (subtotal * tax).toFixed(2);
+    document.getElementById('total').innerHTML = "$" + ((subtotal * tax) + subtotal).toFixed(2);
 
     // Adds to total, but doesn't subtract yet, Coffee button doesn't add to subtotal
 }
