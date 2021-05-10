@@ -9,6 +9,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+session_start();
+
 $sql = "USE Cafe-CVTech";
 mysqli_query($conn, $sql);
 
@@ -21,6 +23,7 @@ if (isset($_POST["submit"])) {
         while ($row = $result->fetch_array()) {
             if ($id == $row[0]) {
                 header("Location:./CafeCVTech.php");
+                $_SESSION["id"] = $_POST["Id"];
             } else {
                 echo "Incorrect Id.";
             }
