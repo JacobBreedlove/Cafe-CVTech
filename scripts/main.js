@@ -4,6 +4,7 @@ var txt;
 let subtotal = 0;
 let deletePriceResult = 0;
 let num= 0; 
+let x = 1;
 
 function addToReceipt(e) {
     let item;
@@ -20,7 +21,6 @@ function addToReceipt(e) {
     let matchedItemID;
     let qtyID;
     let button;
-    let x = 1;
 
     for (i = 0; i < receipt.length; i++) {
         if(receipt[i] == item){
@@ -38,6 +38,7 @@ function addToReceipt(e) {
         let after = before + 1;
         document.getElementById(matchedItemID).innerHTML = after;
         getPrices(item, num, matchedItem);
+
     } else {
         num = num + 1;
         receipt.push(item);
@@ -91,8 +92,11 @@ function addToReceipt(e) {
     }
     number = document.getElementById("quantity" + x).innerHTML;
     txt = receipt[x];
-    ++x;
+    x = x + 1;
+    console.log(x);
+    console.log(txt);
     order.push(txt);
+    order.push(number);
 }
 
 
@@ -151,28 +155,35 @@ function reformatIDs(formElementCount, e) {
             childElementID2.setAttribute("name", childName);
         }
         num = num -1;
+        x = x - 1;
     }
     
 }
 
 function submitReceipt() {
-    let i = 1
+    let element = document.querySelector("#items");
+    let elementNumChildren = element.childElementCount;
+    for (i = 0; i < elementNumChildren; i++) {
+        element = document.getElementById("quantity" + i).innerHTML;
+        order += receipt[i] + element;
+    }
+    // let i = 1
     //send order[] to php table
-    order = {"items":order};
-    dbParam = JSON.stringify(order);
-    xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "./php/total.php?x=" + dbParam, true);
+//     alert(order);
+//     order = {"items":order};
+//     dbParam = JSON.stringify(order);
+//     xmlhttp = new XMLHttpRequest();
+//     xmlhttp.open("POST", "./php/total.php?x=" + dbParam, true);
 
-    price = {"price":document.getElementById('total').innerHTMLr};
-    dbParam = JSON.stringify(price);
-    xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "./php/total.php?x=" + dbParam, true);
-}
+//     price = {"price":document.getElementById('total').innerHTMLr};
+//     dbParam = JSON.stringify(price);
+//     xmlhttp = new XMLHttpRequest();
+//     xmlhttp.open("POST", "./php/total.php?x=" + dbParam, true);
+ }
 
 
 function calculateSubtotal(result) {
     let subtotal1;
-    let x = 1;
     price = parseInt(result);
     subtotal1 = price;
     subtotal += subtotal1;
@@ -206,7 +217,7 @@ function getPrices(item, num, matchedItem) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             items_price = this.responseText;
-            let result = items_price[11];
+            let result = items_price[10];
             calculateSubtotal(result);
             result2 = formatFunction(result);
             if(!matchedItem) {
