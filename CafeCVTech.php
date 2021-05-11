@@ -116,7 +116,7 @@
         </div>
         <hr>
 
-        <form action="" method="POST" id="receipt">
+        <form action="./php/total.php" method="POST" id="receipt">
             <div class="row receiptHeader">
                 <div class="col-md-2 receiptHead">Qty</div>
                 <div class="col-md-4 receiptHead">Item</div>
@@ -134,9 +134,9 @@
                         <h2><strong>Total: </strong></h2>
                     </div>
                     <div class="col-md-5">
-                        <h5 id="tax"></h5>
-                        <h5 id="subtotal"></h5>
-                        <h2 id="total"></h2>
+                        <h5 id="tax" name="tax"></h5>
+                        <h5 id="subtotal" name="subtotal"></h5>
+                        <h2 id="total" name="total"></h2>
                     </div>
                 </div>
             </div>
@@ -144,8 +144,8 @@
                 <div id="submitButton" onclick="cashCredit()">Finalize Order</div>
             </div>
             <div class="col-md-6 cashCredit">
-                <button name="cash" class="cashCreditButtons" id="cash" type="submit" value="cash" onclick="submitReceipt()">Cash</button>
-                <button class=" cashCreditButtons" type="submit" id="credit" value="credit" name="credit" onclick="submitReceipt()">Card</button>
+                <button name="cash" class="cashCreditButtons" id="cash" value="cash" onclick="submitReceipt()">Cash</button>
+                <button class="cashCreditButtons" id="credit" value="credit" name="credit" onclick="submitReceipt()">Card</button>
             </div>
         </form>
 

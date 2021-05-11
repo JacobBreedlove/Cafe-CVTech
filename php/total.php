@@ -10,6 +10,7 @@ $order = json_decode($_GET["x"], false);
 $DateTime = date("Y-m-d h:i:sa");
 $CashierName = $_SESSION["id"];
 $Items = $order;
+$total = $_POST["total"];
 $Cost = $total;
 
 $Payment;

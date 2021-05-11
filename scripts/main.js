@@ -90,13 +90,6 @@ function addToReceipt(e) {
             
         document.querySelector("#items").appendChild(wrapper1);
     }
-    number = document.getElementById("quantity" + x).innerHTML;
-    txt = receipt[x];
-    x = x + 1;
-    console.log(x);
-    console.log(txt);
-    order.push(txt);
-    order.push(number);
 }
 
 
@@ -164,21 +157,22 @@ function submitReceipt() {
     let element = document.querySelector("#items");
     let elementNumChildren = element.childElementCount;
     for (i = 0; i < elementNumChildren; i++) {
-        element = document.getElementById("quantity" + i).innerHTML;
-        order += receipt[i] + element;
+        let quantID = "quantity" + (i+1);
+        element = document.getElementById(quantID).innerHTML;
+        order.push(receipt[i+1] + element);
     }
-    // let i = 1
-    //send order[] to php table
-//     alert(order);
-//     order = {"items":order};
-//     dbParam = JSON.stringify(order);
-//     xmlhttp = new XMLHttpRequest();
-//     xmlhttp.open("POST", "./php/total.php?x=" + dbParam, true);
 
-//     price = {"price":document.getElementById('total').innerHTMLr};
-//     dbParam = JSON.stringify(price);
-//     xmlhttp = new XMLHttpRequest();
-//     xmlhttp.open("POST", "./php/total.php?x=" + dbParam, true);
+    let i = 1
+    // send order[] to php table
+    order = {"items":order};
+    dbParam = JSON.stringify(order);
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "./php/total.php?x=" + dbParam, true);
+
+    price = {"price":document.getElementById('total').innerHTMLr};
+    dbParam = JSON.stringify(price);
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "./php/total.php?x=" + dbParam, true);
  }
 
 
@@ -217,7 +211,7 @@ function getPrices(item, num, matchedItem) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             items_price = this.responseText;
-            let result = items_price[10];
+            let result = items_price[11];
             calculateSubtotal(result);
             result2 = formatFunction(result);
             if(!matchedItem) {
