@@ -161,20 +161,35 @@ function submitReceipt() {
         element = document.getElementById(quantID).innerHTML;
         order.push(receipt[i+1] + element);
     }
-
-    let i = 1
+    let price = document.getElementById("total").innerHTML;
+    alert(price);
+    createCookie("order", order, "1");
+    createCookie("cost", price, "1");
     // send order[] to php table
     order = {"items":order};
     dbParam = JSON.stringify(order);
     xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "./php/total.php?x=" + dbParam, true);
+    xmlhttp.open("POST", "./php/total.php" + dbParam, true);
+    xmlhttp.send();
 
-    price = {"price":document.getElementById('total').innerHTMLr};
-    dbParam = JSON.stringify(price);
-    xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "./php/total.php?x=" + dbParam, true);
+    // price = {"price":document.getElementById('total').innerHTML};
+    // dbParam = JSON.stringify(price);
+    // xmlhttp = new XMLHttpRequest();
+    // xmlhttp.open("POST", "./php/total.php?x=" + dbParam, true);
+    // xmlhttp.send();
  }
 
+function createCookie(name, value, days) {
+    let expires;
+    if (days) {
+        let date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    } else {
+        expires = "";
+    }
+    document.cookie = escape(name) + "=" + escape(value) + expires;
+}
 
 function calculateSubtotal(result) {
     let subtotal1;
@@ -211,7 +226,7 @@ function getPrices(item, num, matchedItem) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             items_price = this.responseText;
-            let result = items_price[11];
+            let result = items_price[10];
             calculateSubtotal(result);
             result2 = formatFunction(result);
             if(!matchedItem) {

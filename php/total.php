@@ -4,15 +4,12 @@ include "connect.php";
 session_start();
 
 header("Content-Type: application/json; charset=UTF-8");
-$order = json_decode($_GET["x"], false);
-
+$order = $_COOKIE["order"];
+$total = $_COOKIE["cost"];
 
 $DateTime = date("Y-m-d h:i:sa");
 $CashierName = $_SESSION["id"];
 $Items = $order;
-$total = $_POST["total"];
-$Cost = $total;
-
 $Payment;
 if(isset($_POST['cash'])) {
     $Payment = "cash";
@@ -20,7 +17,7 @@ if(isset($_POST['cash'])) {
     $Payment = "card";
 }
 
-$sql = "INSERT INTO Orders (DoO, Cashier, Items, Cost, Payment) VALUES ('$DateTime', '$CashierName', '$Items', '$Cost', '$Payment')";
+$sql = "INSERT INTO Orders (DoO, Cashier, Items, Cost, Payment) VALUES ('$DateTime', '$CashierName', '$Items', '$total', '$Payment')";
 if ($conn->query($sql) === TRUE) {
     echo "success";
 } else {
