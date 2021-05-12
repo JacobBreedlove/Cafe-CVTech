@@ -1,0 +1,24 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --mainColor: #002f87;
+    --accentColor: #ab0033;
+}
+
+body {
+    overflow: hidden;
+}
+
+.mainSection {
+    width: 70%;
+    background: red;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 10px;
+}
