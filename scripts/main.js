@@ -165,18 +165,6 @@ function submitReceipt() {
     alert(price);
     createCookie("order", order, "1");
     createCookie("cost", price, "1");
-    // send order[] to php table
-    order = {"items":order};
-    dbParam = JSON.stringify(order);
-    xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "./php/total.php" + dbParam, true);
-    xmlhttp.send();
-
-    // price = {"price":document.getElementById('total').innerHTML};
-    // dbParam = JSON.stringify(price);
-    // xmlhttp = new XMLHttpRequest();
-    // xmlhttp.open("POST", "./php/total.php?x=" + dbParam, true);
-    // xmlhttp.send();
  }
 
 function createCookie(name, value, days) {
@@ -298,4 +286,8 @@ function cashCredit(){
     document.querySelector(".submit").style.display = "none";
     document.querySelector("#cash").style.display = "inline";
     document.querySelector("#credit").style.display = "inline";
+}
+
+function test(order){
+    alert(num);
 }
