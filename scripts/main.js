@@ -273,18 +273,6 @@ function submitReceipt() {
     alert(price);
     createCookie("order", order, "1");
     createCookie("cost", price, "1");
-    // send order[] to php table
-    order = {"items":order};
-    dbParam = JSON.stringify(order);
-    xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", "./php/total.php" + dbParam, true);
-    xmlhttp.send();
-
-    // price = {"price":document.getElementById('total').innerHTML};
-    // dbParam = JSON.stringify(price);
-    // xmlhttp = new XMLHttpRequest();
-    // xmlhttp.open("POST", "./php/total.php?x=" + dbParam, true);
-    // xmlhttp.send();
  }
 
 function createCookie(name, value, days) {
@@ -309,14 +297,29 @@ function calculateSubtotal(result) {
 
 function subtotalToPage(){
     tax = 0.045;
-    document.getElementById('subtotal').innerHTML = "$" + subtotal + ".00";
-    document.getElementById('tax').innerHTML = "$" + (subtotal * tax).toFixed(2);
-    document.getElementById('total').innerHTML = "$" + ((subtotal * tax) + subtotal).toFixed(2);
+    if (subtotal < 10) {
+        document.getElementById('subtotal').innerHTML = "$0" + subtotal + ".00";
+    } else {
+        document.getElementById('subtotal').innerHTML = "$" + subtotal + ".00";
+    }
+    
+    if (subtotal * tax < 10) {
+        document.getElementById('tax').innerHTML = "$0" + (subtotal * tax).toFixed(2);
+    } else {
+        document.getElementById('tax').innerHTML = "$" + (subtotal * tax).toFixed(2);
+    }
+
+    if ((subtotal * tax) + subtotal < 10) {
+        document.getElementById('total').innerHTML = "$0" + ((subtotal * tax) + subtotal).toFixed(2);
+    } else {
+        document.getElementById('total').innerHTML = "$" + ((subtotal * tax) + subtotal).toFixed(2);
+    }
+
+    
 }
 
 function calculateTotal() {
     total = (subtotal * 0.045) + subtotal;
-    console.log(total);
 }
 
 function getPricesDelete(itemRow){
@@ -334,7 +337,7 @@ function getPrices(item, num, matchedItem) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             items_price = this.responseText;
-            let result = items_price[10];
+            let result = items_price[11];
             calculateSubtotal(result);
             result2 = formatFunction(result);
             if(!matchedItem) {
@@ -356,8 +359,12 @@ addEventListener("click", function() {
 });
 
 function formatFunction(result){
-    let formatted = "$" + result + ".00";
+    let formatted;
+    console.log(result);
+    formatted = "$" + result + ".00";
     return formatted;
+
+    
 }
 
 
@@ -387,4 +394,8 @@ function cashCredit(){
     document.querySelector(".submit").style.display = "none";
     document.querySelector("#cash").style.display = "inline";
     document.querySelector("#credit").style.display = "inline";
+}
+
+function test(order){
+    alert(num);
 }

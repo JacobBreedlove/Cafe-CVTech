@@ -1,0 +1,84 @@
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --mainColor: #002f87;
+    --accentColor: #ab0033;
+}
+
+body {
+    overflow: hidden;
+    background: #ebebeb;
+}
+
+.mainSection {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    padding: 10px;
+    border: 1px solid var(--accentColor);
+    background: rgb(255, 255, 255);
+}
+
+.secondHeader {
+    width: 80%;
+    height: 35px;
+    margin-top: 1px;
+    background: var(--accentColor);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header {
+    width: 80%;
+    background: var(--mainColor);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+.logo {
+    padding-top: 23px;
+    width: 250px;
+    height: 75px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.col-md-4 h1 {
+    float: right;
+    margin-right: 50px;
+    letter-spacing: 2px;
+}
+
+.col-md-4 h3 {
+    float: right;
+    margin-right: 50px;
+}
+
+.row {
+    padding: 20px;
+}
+
+.total input {
+    font-size: 34px;
+    border: none;
+}
+
+.pMethod input {
+    font-size: 28px;
+    border: none;
+    position: relative;
+    bottom: 4px;
+}
+
+input:focus {
+    outline: none;
+}
