@@ -118,10 +118,10 @@
 
         <form action="./php/total.php" method="POST" id="receipt">
             <div class="row receiptHeader">
-                <div class="col-md-2 receiptHead">Qty</div>
+                <div class="col-md-3 receiptHead">Qty</div>
                 <div class="col-md-4 receiptHead">Item</div>
                 <div class="col-md-4 receiptHead">Price</div>
-                <div class="col-md-2"></div>
+                <div class="col-md-1"></div>
             </div>
             <div id="items">
             </div>
