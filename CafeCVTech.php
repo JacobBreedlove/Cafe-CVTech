@@ -144,8 +144,8 @@
                 <div id="submitButton" onclick="cashCredit()">Finalize Order</div>
             </div>
             <div class="col-md-6 cashCredit">
-                <button name="cash" class="cashCreditButtons" id="cash" value="cash" onclick="submitReceipt()">Cash</button>
-                <button class="cashCreditButtons" id="credit" value="credit" name="credit" onclick="submitReceipt()">Card</button>
+                <button name="cash" class="cashCreditButtons" id="cash" value="Cash" onclick="submitReceipt()">Cash</button>
+                <button class="cashCreditButtons" id="credit" value="credit" name="Credit" onclick="submitReceipt()">Card</button>
             </div>
         </form>
 

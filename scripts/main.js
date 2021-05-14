@@ -340,7 +340,7 @@ function getPrices(item, num, matchedItem) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             items_price = this.responseText;
-            let result = items_price[11];
+            let result = items_price[10];
             calculateSubtotal(result);
             result2 = formatFunction(result);
             if(!matchedItem) {
