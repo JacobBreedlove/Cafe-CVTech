@@ -5,6 +5,7 @@ let subtotal = 0;
 let deletePriceResult = 0;
 let num= 0; 
 let x = 1;
+let parentIdNum;
 
 function addToReceipt(e) {
     let item;
@@ -38,7 +39,6 @@ function addToReceipt(e) {
         let after = before + 1;
         document.getElementById(matchedItemID).innerHTML = after;
         getPrices(item, num, matchedItem);
-
     } else {
         num = num + 1;
         receipt.push(item);
@@ -58,15 +58,16 @@ function addToReceipt(e) {
         qtyID = "quantity" + num;
         inner4.setAttribute("class", "quantity");
         inner4.id = "quantity" + num;
-
+        inner4.setAttribute("onclick", "adjustQuantity(this)");
+        
         inner2.id = "itemPrice" + num;
-
+        
         // Increment or no increment??
         name = "itemName" + num;
         inner1.setAttribute("name", name);
-
+        
         getPrices(item, num, matchedItem);
-
+        
         text = document.createTextNode(item);
         text2 = document.createTextNode("1");
         button1 = document.createElement("DIV");
@@ -90,6 +91,113 @@ function addToReceipt(e) {
             
         document.querySelector("#items").appendChild(wrapper1);
     }
+}
+
+
+function createAdjuster(count) {
+
+    adjuster = document.createElement("div");
+    add = document.createElement("div");
+    subtract = document.createElement("div");
+    quantity = document.createElement("input");
+    change = document.createElement("div");
+    confirmQuantity = document.createElement("div");
+    cancel = document.createElement("div");
+    finalize = document.createElement("div");
+    //select quantity and pull innerHTML for count
+    
+    add.innerHTML = "+";
+    add.setAttribute("onclick", "increase(quantity)")
+    subtract.innerHTML = "-";
+    subtract.setAttribute("onclick", "decrease(quantity)")
+    quantity.value = count;
+    confirmQuantity.innerHTML = "Confirm";
+    cancel.innerHTML = "Cancel";
+    cancel.setAttribute("onclick", "destroy(this)");
+    change.appendChild(add);
+    change.appendChild(quantity);
+    change.appendChild(subtract);
+    finalize.appendChild(confirmQuantity);
+    finalize.appendChild(cancel);
+    adjuster.appendChild(change);
+    adjuster.appendChild(finalize);
+    adjuster.id = "adjuster" + parentIdNum;
+    adjuster.name = "adjuster";
+}
+
+
+function adjustQuantity(e) {
+    //find place to put adjuster
+    let adjusterQuantity = e.innerHTML;
+    findNum(e);
+    createAdjuster(adjusterQuantity);
+    let insertId = document.getElementById("quantity" + parentIdNum);
+    insertId = insertId.parentNode;
+    insertId.appendChild(adjuster);
+    document.getElementById("quantity" + parentIdNum).style.display = "none";
+
+    confirmQuantity.setAttribute("onclick", "setQuantity(this)");
+}
+
+function increase() {
+    let value = parseInt(quantity.value);
+    value = value + 1;
+    quantity.value = value;
+}
+
+function decrease() {
+    let value = parseInt(quantity.value);
+    if (value > 1) {
+        value = value - 1;
+        quantity.value = value;
+    } 
+}
+
+function findNum(e){
+    let element = e.parentNode.parentNode;
+    element = element.childNodes;
+    parentIdNum = element[2].id;
+    parentIdNum = parentIdNum.slice(-1);
+    console.log(parentIdNum);
+}
+
+function setQuantity(e) {
+    //find way to select correct quantity
+    let element1 = e.parentNode.parentNode;
+    let adjusterQuantity2 = quantity.value;
+    let element = element1.id;
+    let elementNum = element.slice(-1);
+    let beforeQuantity = document.getElementById("quantity" + elementNum).innerHTML;
+    confirmButtonSubtotal(adjusterQuantity2, element1, beforeQuantity);
+    document.getElementById(element).remove();
+    
+    
+    
+    document.getElementById("quantity" + elementNum).innerHTML = adjusterQuantity2;
+    document.getElementById("quantity" + parentIdNum).style.display = "block";
+}
+
+function confirmButtonSubtotal(quantity, e, before){
+    element = e.parentNode.parentNode.childNodes;
+    element = element[2].id;
+    let confirmPrice = document.getElementById(element).innerHTML;
+    let deformatted = deformat(confirmPrice);
+    let totalPrice = deformatted * quantity;
+    before = before * deformatted;
+    subtotal -= before;
+    calculateSubtotal(totalPrice);
+}
+
+function deformat(price) {
+    price = price.substring(1,2);
+    return price;
+}
+
+function destroy(e) {
+    let adjusterID = e.parentNode.parentNode.id;
+    console.log(adjusterID)
+    document.getElementById(adjusterID).remove();
+    document.getElementById("quantity" + parentIdNum).style.display = "block";
 }
 
 
