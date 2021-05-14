@@ -67,7 +67,7 @@ if (isset($_POST["submit"])) {
                 <div class="row">
                     <div class="col-md-12">
                         <label for="Id">Employee ID</label>
-                        <input type="text" name="Id">
+                        <input type="number" name="Id">
                         <button type="submit" name="submit">Sign-in</button>
                     </div>
                 </div>
