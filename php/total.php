@@ -78,7 +78,7 @@ $conn->query($sql);
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-4">
-                    <h1>Total: </h1>
+                    <h2>Total: </h2>
                 </div>
                 <div class="col-md-4 total">
                     <input type="text" name="total" value="<?php echo $total ?>" id="displayFinalTotal" readonly>
@@ -87,7 +87,7 @@ $conn->query($sql);
             </div>
             <div class="row">
                 <div class="col-md-2"></div>
-                <div class="col-md-4">
+                <div class="col-md-4" id="paymentType">
                     <h3>Pay with: </h3>
                 </div>
                 <div class="col-md-4 pMethod"><input type="text" name="paymentMethod" value="<?php echo $Payment ?>" readonly></div>

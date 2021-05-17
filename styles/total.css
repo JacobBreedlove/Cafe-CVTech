@@ -52,7 +52,7 @@ body {
     margin-right: auto;
 }
 
-.col-md-4 h1 {
+.col-md-4 h2 {
     float: right;
     margin-right: 50px;
     letter-spacing: 2px;
@@ -64,12 +64,13 @@ body {
 }
 
 .row {
-    padding: 20px;
+    padding: 15px;
 }
 
 .total input {
-    font-size: 34px;
+    font-size: 30px;
     border: none;
+    margin-bottom: 5px;
 }
 
 .pMethod input {
@@ -81,4 +82,14 @@ body {
 
 input:focus {
     outline: none;
+}
+
+#paymentType {
+    position: relative;
+    left: 23px;
+}
+
+#displayFinalTotal {
+    position: relative;
+    bottom: 2px;
 }
