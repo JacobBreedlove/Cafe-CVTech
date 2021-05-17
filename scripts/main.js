@@ -270,7 +270,7 @@ function submitReceipt() {
         order.push(receipt[i+1] + element);
     }
     let price = document.getElementById("total").innerHTML;
-    alert(price);
+    // alert(price);
     createCookie("order", order, "1");
     createCookie("cost", price, "1");
  }
@@ -396,6 +396,6 @@ function cashCredit(){
     document.querySelector("#credit").style.display = "inline";
 }
 
-function test(order){
-    alert(num);
-}
+// function test(order){
+//     alert(num);
+// }
