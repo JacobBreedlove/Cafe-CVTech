@@ -189,6 +189,47 @@ body {
     left: 90px;
     display: none;
 }
+
+.quantityInput {
+    color: var(--mainColor);
+    width: 30px;
+    font-size: 18px;
+    background: rgb(219, 219, 219);
+    text-align: center;
+    margin: 3px;
+    border: 1px solid var(--accentColor);
+    display: inline;
+    border-radius: 30px;
+}
+
+.addSubtract {
+    display: inline;
+    color: var(--mainColor);
+    padding: 3px;
+    cursor: pointer;
+}
+
+.confirmCancel {
+    margin-top: 5px;
+    font-size: 16px;
+    border: 1px solid var(--accentColor);
+    color: var(--mainColor);
+    padding: 1px;
+    width: 75px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.confirmCancel:active {
+    background: white;
+}
+
+#addition {
+    position: relative;
+    top: 2px;
+}
+
 /* Receipt Section */
 
 

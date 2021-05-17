@@ -53,8 +53,8 @@ function addToReceipt(e) {
         wrapper1.setAttribute("class", "row");
         inner1.setAttribute("class", "col-md-4");
         inner2.setAttribute("class", "col-md-4");    
-        inner3.setAttribute("class", "col-md-2");
-        inner5.setAttribute("class", "col-md-2");
+        inner3.setAttribute("class", "col-md-3");
+        inner5.setAttribute("class", "col-md-1");
         qtyID = "quantity" + num;
         inner4.setAttribute("class", "quantity");
         inner4.id = "quantity" + num;
@@ -95,25 +95,29 @@ function addToReceipt(e) {
 
 
 function createAdjuster(count) {
-
     adjuster = document.createElement("div");
     add = document.createElement("div");
     subtract = document.createElement("div");
     quantity = document.createElement("input");
+    quantity.setAttribute("class", "quantityInput");
     change = document.createElement("div");
     confirmQuantity = document.createElement("div");
     cancel = document.createElement("div");
     finalize = document.createElement("div");
-    //select quantity and pull innerHTML for count
-    
+
     add.innerHTML = "+";
+    add.setAttribute("class", "addSubtract");
     add.setAttribute("onclick", "increase(quantity)")
     subtract.innerHTML = "-";
+    add.id = "addition";
+    subtract.setAttribute("class", "addSubtract");
     subtract.setAttribute("onclick", "decrease(quantity)")
     quantity.value = count;
     confirmQuantity.innerHTML = "Confirm";
+    confirmQuantity.setAttribute("class", "confirmCancel");
     cancel.innerHTML = "Cancel";
     cancel.setAttribute("onclick", "destroy(this)");
+    cancel.setAttribute("class", "confirmCancel");
     change.appendChild(add);
     change.appendChild(quantity);
     change.appendChild(subtract);
@@ -122,6 +126,7 @@ function createAdjuster(count) {
     adjuster.appendChild(change);
     adjuster.appendChild(finalize);
     adjuster.id = "adjuster" + parentIdNum;
+    adjuster.setAttribute("class", "adjuster");
     adjuster.name = "adjuster";
 }
 
@@ -228,8 +233,6 @@ function deleteItem(e) {
         
     }
     }
-
-    
 }
 
 function reformatIDs(formElementCount, e) {
@@ -319,7 +322,7 @@ function subtotalToPage(){
 }
 
 function calculateTotal() {
-    total = (subtotal * 0.045) + subtotal;
+    total = (subtotal * 0.0885) + subtotal;
 }
 
 function getPricesDelete(itemRow){
