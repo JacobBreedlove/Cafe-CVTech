@@ -273,7 +273,6 @@ function submitReceipt() {
         order.push(receipt[i+1] + element);
     }
     let price = document.getElementById("total").innerHTML;
-    alert(price);
     createCookie("order", order, "1");
     createCookie("cost", price, "1");
  }
@@ -340,7 +339,7 @@ function getPrices(item, num, matchedItem) {
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             items_price = this.responseText;
-            let result = items_price[10];
+            let result = items_price[11];
             calculateSubtotal(result);
             result2 = formatFunction(result);
             if(!matchedItem) {
@@ -397,8 +396,4 @@ function cashCredit(){
     document.querySelector(".submit").style.display = "none";
     document.querySelector("#cash").style.display = "inline";
     document.querySelector("#credit").style.display = "inline";
-}
-
-function test(order){
-    alert(num);
 }
